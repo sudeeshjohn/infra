@@ -29,6 +29,7 @@ module "prepare" {
     #Specify dns for public network. Trim spaces that may be present in splitted values.
     network_dns                     = var.dns_forwarders == "" ? [] : [for dns in split(";", var.dns_forwarders): trimspace(dns)]
     rhel_username                   = var.rhel_username
+    ansible_repo_name               = ""
     private_key                     = local.private_key
     public_key                      = local.public_key
     ssh_agent                       = var.ssh_agent
